@@ -103,18 +103,17 @@ class Danack_Sniffs_PHPUnit_MissingCoversSniff implements Sniff
         }
 
         if (!$has_annotation) {
-
             if ($is_class) {
-
-                // Classes don't have to have the annotation, so this is OK. However,
-                // each method will have to have it.
-                return null;
-
+                $phpcsFile->addError(
+                    'Missing PHPUnit code coverage annotation for test class.'
+                    , $stackPtr
+                    , 'MissingAnnotation'
+                );
             }
             elseif ($is_function) {
 
                 $phpcsFile->addError(
-                    'Missing PHPUnit code coverage annotation.'
+                    'Missing PHPUnit code coverage annotation for test.'
                     , $stackPtr
                     , 'MissingAnnotation'
                 );
