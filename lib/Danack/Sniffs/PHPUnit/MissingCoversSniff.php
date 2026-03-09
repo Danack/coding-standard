@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Danack\Sniffs\PHPUnit;
+
 /**
  *
  * PHPUnit Missing Covers Sniff class.
@@ -12,13 +14,14 @@ declare(strict_types=1);
 
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
+use PHP_CodeSniffer\Files\File;
 
 /**
  * Sniff for missing @covers annotations on PHPUnit tests.
  *
  * @since 2.3.0
  */
-class Danack_Sniffs_PHPUnit_MissingCoversSniff implements Sniff
+class MissingCoversSniff implements Sniff
 {
     /**
      * @since 2.3.0
@@ -31,7 +34,7 @@ class Danack_Sniffs_PHPUnit_MissingCoversSniff implements Sniff
     /**
      * @since 2.3.0
      */
-    public function process(PHP_CodeSniffer\Files\File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
 
         $tokens = $phpcsFile->getTokens();

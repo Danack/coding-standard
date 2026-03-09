@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
+namespace Danack\Sniffs\PHP;
+
 /**
  * Sniff for methods that are required to call the parent method.
  *
  */
 
+use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Util\Tokens;
 
@@ -15,7 +18,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * @since 2.2.0
  */
-class Danack_Sniffs_PHP_RequiredParentMethodCallSniff implements Sniff
+class RequiredParentMethodCallSniff implements Sniff
 {
 
     /**
@@ -43,7 +46,7 @@ class Danack_Sniffs_PHP_RequiredParentMethodCallSniff implements Sniff
     /**
      * @since 2.0.0
      */
-    public function process(PHP_CodeSniffer\Files\File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
 
         $tokens = $phpcsFile->getTokens();
