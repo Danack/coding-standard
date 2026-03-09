@@ -108,7 +108,7 @@ class MissingCoversSniff implements Sniff
         if (!$has_annotation) {
             if ($is_class) {
                 $phpcsFile->addError(
-                    'Missing PHPUnit code coverage annotation for test class.'
+                    'Missing PHPUnit coverage annotation. Add a @coversNothing annotation to the class.'
                     , $stackPtr
                     , 'MissingAnnotation'
                 );
